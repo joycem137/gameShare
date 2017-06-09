@@ -3,14 +3,15 @@
  */
 const React = require('react');
 
-var GameApp = React.createClass({
+class GameApp extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
         return (
-            <div>
-                Hello World!
-            </div>
+            <div>Hello World!</div>
         );
     }
-});
+}
 
 module.exports = GameApp;

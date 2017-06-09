@@ -10,7 +10,8 @@ require('./stylesheets/main.css');
 
 // The react component.
 const React = require('react');
+const ReactDOM = require('react-dom');
 
 const GameApp = require('./ui/GameApp.jsx');
 
-React.render(<GameApp/>, document.getElementById('app'));
+ReactDOM.render(<GameApp/>, document.getElementById('app'));
