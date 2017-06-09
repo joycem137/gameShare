@@ -1,0 +1,23 @@
+{
+  "name": "gameshare",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "fs-extra": "^0.26.7",
+    "jsPolyfills": "git://github.com/joycem137/jsPolyfills.git",
+    "react": "^15.5.4",
+    "style-loader": "^0.18.2",
+    "webpack": "^2.6.1"
+  }
+}
