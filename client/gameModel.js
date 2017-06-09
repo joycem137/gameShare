@@ -2,6 +2,18 @@
  *
  */
 module.exports = {
+    initState: {
+        pieces: [
+            {id: 0, color: 'white', height: 2, location: 'B2'},
+            {id: 1, color: 'white', height: 2, location: 'E8'},
+            {id: 2, color: 'white', height: 2, location: 'H2'},
+            {id: 3, color: 'black', height: 2, location: 'B5'},
+            {id: 4, color: 'black', height: 2, location: 'E2'},
+            {id: 5, color: 'black', height: 2, location: 'H5'}
+        ],
+        blackReserve: 12,
+        whiteReserve: 12
+    },
     pieceImages: {
         white1: {
             url: 'assets/whiteSingle.png',
@@ -22,6 +34,20 @@ module.exports = {
             url: 'assets/blackDouble.png',
             width: 150,
             height: 160
+        }
+    },
+    reserve: {
+        black: {
+            top: 40,
+            left: 1060,
+            width: 335,
+            height: 200
+        },
+        white: {
+            top: 1190,
+            left: 35,
+            width: 335,
+            height: 200
         }
     },
     board: {
@@ -100,7 +126,7 @@ module.exports = {
         },
         C7: {
             x: 460,
-            y: 251
+            y: 255
         },
         D1: {
             x: 590,
@@ -164,7 +190,7 @@ module.exports = {
         },
         E8: {
             x: 719,
-            y: 251
+            y: 255
         },
         E9: {
             x: 719,
@@ -228,7 +254,7 @@ module.exports = {
         },
         G7: {
             x: 976,
-            y: 251
+            y: 255
         },
         H1: {
             x: 1105,

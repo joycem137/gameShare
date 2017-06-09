@@ -3,6 +3,7 @@
  */
 const React = require('react');
 const Board = require('./Board.jsx');
+const Reserve = require('./Reserve.jsx');
 const Pieces = require('./Pieces.jsx');
 
 function makeGameApp({gameState, gameModel}) {
@@ -16,7 +17,7 @@ function makeGameApp({gameState, gameModel}) {
 
         render() {
             const {board: {image: boardImage}, locations} = gameModel;
-            const {pieces} = this.state;
+            const {pieces, whiteReserve, blackReserve} = this.state;
 
             const boardRect = {
                 width: 720,
@@ -28,6 +29,14 @@ function makeGameApp({gameState, gameModel}) {
                     <Pieces boardRect={boardRect}
                             pieces={pieces}
                             gameModel={gameModel}/>
+                    <Reserve reserve={whiteReserve}
+                            gameModel={gameModel}
+                            boardRect={boardRect}
+                            color='white'/>
+                    <Reserve reserve={blackReserve}
+                            gameModel={gameModel}
+                            boardRect={boardRect}
+                            color='black'/>
                 </Board>
             );
         }

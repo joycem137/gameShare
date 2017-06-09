@@ -3,6 +3,13 @@
     flex-direction: row;
 }
 
-.board {
+.reservePiece {
+    display: inline;
+}
 
+.reserveContainer {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    flex-wrap: wrap;
 }

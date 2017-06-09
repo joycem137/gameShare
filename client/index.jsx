@@ -15,6 +15,9 @@ const ReactDOM = require('react-dom');
 const State = require('./state');
 const gameState = new State();
 const gameModel = require('./gameModel');
+
+gameState.setState(gameModel.initState);
+
 const GameApp = require('./ui/GameApp.jsx')({gameState, gameModel});
 
 ReactDOM.render(<GameApp/>, document.getElementById('app'));
