@@ -13,7 +13,8 @@ class Board extends React.Component {
         const boardStyle = {
             width: rect.width,
             height: rect.height,
-            backgroundImage: 'url(' + boardImage + ')'
+            backgroundImage: 'url(' + boardImage + ')',
+            backgroundSize: '100%'
         };
 
         return (

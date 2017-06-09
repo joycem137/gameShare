@@ -3,9 +3,11 @@ var webpack = require('webpack');
 var path = require('path');
 
 var React = require('react');
-
 // Fix node modules for using through webpack.
 var nodeModules = {};
+
+const OUTPUT_DIR = path.join(__dirname, 'build');
+
 fs.readdirSync('node_modules')
     .filter(function(x) {
         return ['.bin'].indexOf(x) === -1;
@@ -21,10 +23,13 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     inject: 'body'
 });
 
-const OUTPUT_DIR = path.join(__dirname, 'build');
-
-copyAssets();
-
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyWebpackPluginConfig = new CopyWebpackPlugin([
+    {
+        from: './client/assets',
+        to: OUTPUT_DIR + '/assets'
+    }
+]);
 module.exports = [
     {
         entry: ['./client/index.jsx'],
@@ -48,17 +53,8 @@ module.exports = [
             ]
         },
 
-        plugins: [HtmlWebpackPluginConfig]
+        plugins: [
+            HtmlWebpackPluginConfig,
+            CopyWebpackPluginConfig]
     }
 ];
-
-
-function copyAssets() {
-    fs.copy('./client/assets/', OUTPUT_DIR + '/assets/', function (err) {
-        if (err) {
-            console.error(err);
-        } else {
-            console.log("Assets copied to build!");
-        }
-    });
-}
