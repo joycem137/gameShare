@@ -7,7 +7,7 @@ class State {
             {id: 0, color: 'white', height: 1, location: 'A1'},
             {id: 1, color: 'black', height: 1, location: 'I2'},
             {id: 2, color: 'white', height: 2, location: 'B3'},
-            {id: 3, color: 'black', height: 2, location: 'A5'},
+            {id: 3, color: 'black', height: 2, location: 'G5'},
             {id: 4, color: 'black', height: 2, location: 'H3'},
             {id: 5, color: 'black', height: 1, location: 'B2'},
             {id: 6, color: 'white', height: 2, location: 'C5'},
