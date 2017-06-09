@@ -3,15 +3,28 @@
  */
 const React = require('react');
 
-class GameApp extends React.Component {
-    constructor(props) {
-        super(props);
+function makeGameApp({gameState, gameModel}) {
+    const Board = require('./Board.jsx');
+
+    class GameApp extends React.Component {
+        constructor(props) {
+            super(props);
+        }
+
+        render() {
+            const {boardImage} = gameModel;
+            const boardRect = {
+                width: 720,
+                height: 720
+            };
+
+            return (
+                <Board rect={boardRect} boardImage={boardImage}></Board>
+            );
+        }
     }
-    render() {
-        return (
-            <div>Hello World!222</div>
-        );
-    }
+
+    return GameApp;
 }
 
-module.exports = GameApp;
+module.exports = makeGameApp;

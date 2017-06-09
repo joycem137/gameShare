@@ -21,13 +21,16 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     inject: 'body'
 });
 
+const OUTPUT_DIR = path.join(__dirname, 'build');
+
+copyAssets();
 
 module.exports = [
     {
         entry: ['./client/index.jsx'],
 
         output: {
-            path: path.join(__dirname, 'build'),
+            path: OUTPUT_DIR,
             filename: 'game.js'
         },
 
@@ -48,3 +51,14 @@ module.exports = [
         plugins: [HtmlWebpackPluginConfig]
     }
 ];
+
+
+function copyAssets() {
+    fs.copy('./client/assets/', OUTPUT_DIR + '/assets/', function (err) {
+        if (err) {
+            console.error(err);
+        } else {
+            console.log("Assets copied to build!");
+        }
+    });
+}
