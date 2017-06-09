@@ -12,7 +12,8 @@ require('./stylesheets/main.css');
 const React = require('react');
 const ReactDOM = require('react-dom');
 
-const gameState = require('./state');
+const State = require('./state');
+const gameState = new State();
 const gameModel = require('./gameModel');
 const GameApp = require('./ui/GameApp.jsx')({gameState, gameModel});
 
