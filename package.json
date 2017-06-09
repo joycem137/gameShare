@@ -20,12 +20,12 @@
     "html-webpack-plugin": "^2.28.0",
     "jsPolyfills": "git://github.com/joycem137/jsPolyfills.git",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "style-loader": "^0.18.2",
-    "webpack": "^2.6.1",
-    "webpack-dev-server": "^2.4.5"
+    "react-dom": "^15.5.4"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^4.0.1"
+    "copy-webpack-plugin": "^4.0.1",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5",
+    "style-loader": "^0.18.2"
   }
 }
