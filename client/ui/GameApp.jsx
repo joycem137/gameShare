@@ -9,12 +9,13 @@ const Pieces = require('./Pieces.jsx');
 class GameApp extends React.Component {
     constructor(props) {
         super(props);
-        const {gameState, gameModel} = this.props;
+        const {gameState} = this.props;
         this.state = gameState.getState();
         gameState.onUpdate(this.setState.bind(this));
     }
 
     render() {
+        const {gameModel} = this.props;
         const {board: {image: boardImage}, locations} = gameModel;
         const {pieces, whiteReserve, blackReserve} = this.state;
 

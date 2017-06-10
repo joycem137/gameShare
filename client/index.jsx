@@ -12,9 +12,9 @@ require('./stylesheets/main.css');
 const React = require('react');
 const ReactDOM = require('react-dom');
 
-const State = require('./state');
-const gameState = new State();
-const gameModel = require('./gameModel');
+const GameState = require('./state/game');
+const gameState = new GameState();
+const gameModel = require('./model/gipf');
 
 gameState.setState(gameModel.initState);
 
