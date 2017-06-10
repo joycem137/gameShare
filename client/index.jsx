@@ -18,6 +18,6 @@ const gameModel = require('./gameModel');
 
 gameState.setState(gameModel.initState);
 
-const GameApp = require('./ui/GameApp.jsx')({gameState, gameModel});
+const GameApp = require('./ui/GameApp.jsx');
 
-ReactDOM.render(<GameApp/>, document.getElementById('app'));
+ReactDOM.render(<GameApp gameState={gameState} gameModel={gameModel}/>, document.getElementById('app'));
