@@ -12,7 +12,8 @@ module.exports = {
             {id: 5, color: 'black', height: 2, location: 'H5'}
         ],
         blackReserve: 12,
-        whiteReserve: 12
+        whiteReserve: 12,
+        currentPlayer: 'white'
     },
     pieceImages: {
         white1: {

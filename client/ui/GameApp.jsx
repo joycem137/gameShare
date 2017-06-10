@@ -9,20 +9,23 @@ const Pieces = require('./Pieces.jsx');
 class GameApp extends React.Component {
     constructor(props) {
         super(props);
-        const {gameState} = this.props;
-        this.state = gameState.getState();
-        gameState.onUpdate(this.setState.bind(this));
+        const {gameState, uiState} = this.props;
+        this.state = {
+            game: gameState.getState(),
+            ui: uiState.getState()
+        };
+        gameState.onUpdate(game => this.setState({game}));
+        uiState.onUpdate(ui => this.setState({ui}));
     }
 
     render() {
         const {gameModel} = this.props;
         const {board: {image: boardImage}, locations} = gameModel;
-        const {pieces, whiteReserve, blackReserve} = this.state;
 
-        const boardRect = {
-            width: 720,
-            height: 720
-        };
+        const {game: gameState, ui: uiState} = this.state;
+
+        const {pieces, whiteReserve, blackReserve} = gameState;
+        const {boardRect} = uiState;
 
         return (
             <Board rect={boardRect} boardImage={boardImage}>

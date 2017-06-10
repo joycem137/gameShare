@@ -1,17 +1,21 @@
 /**
- *
+ * Tracks the state for the game.
  */
-class State {
+const State = require('./State');
+class GameState extends State{
     constructor() {
+        super();
         this.pieces = [];
         this.whiteReserve = 0;
         this.blackReserve = 0;
+        this.currentPlayer = '';
     }
     getState() {
         return {
             pieces: this.pieces,
             whiteReserve: this.whiteReserve,
-            blackReserve: this.blackReserve
+            blackReserve: this.blackReserve,
+            currentPlayer: this.currentPlayer
         };
     }
 
@@ -19,12 +23,9 @@ class State {
         this.pieces = state.pieces;
         this.whiteReserve = state.whiteReserve;
         this.blackReserve = state.blackReserve;
-        if(this.updateCallback) this.updateCallback(this.getState());
-    }
-
-    onUpdate(callback) {
-        this.updateCallback = callback;
+        this.currentPlayer = state.currentPlayer;
+        super.setState(state);
     }
 }
 
-module.exports = State;
+module.exports = GameState;
