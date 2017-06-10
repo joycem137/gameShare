@@ -3,8 +3,20 @@
     flex-direction: row;
 }
 
+.piece {
+    background-size: 100%;
+    position: absolute;
+}
+
 .reservePiece {
     display: inline;
+    background-size: 100%;
+}
+
+.ghostPiece {
+    position: absolute;
+    background-size: 100%;
+    opacity: 0.7
 }
 
 .reserveContainer {

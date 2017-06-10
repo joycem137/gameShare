@@ -34,15 +34,13 @@ class Pieces extends React.Component {
             const pieceStyle = {
                 width,
                 height,
-                position: 'absolute',
                 backgroundImage: 'url(' + image.url + ')',
-                backgroundSize: '100%',
                 top,
                 left,
             };
 
             return (
-                <div key={piece.id} style={pieceStyle}></div>
+                <div key={piece.id} style={pieceStyle} className="piece"></div>
             );
         });
 

@@ -1,6 +1,38 @@
 /**
- *
+ * Data needed to render the GIPF game.
  */
+
+const colA = 207;
+const colB = 330;
+const colC = 460;
+const colD = 590;
+const colE = 724;
+const colF = 849;
+const colG = 976;
+const colH = 1105;
+const colI = 1234;
+
+const oddRow1 = 1317;
+const oddRow2 = 1165;
+const oddRow3 = 1015;
+const oddRow4 = 863;
+const oddRow5 = 716;
+const oddRow6 = 557;
+const oddRow7 = 410;
+const oddRow8 = 255;
+const oddRow9 = 132;
+
+const evenRow1 = 1237;
+const evenRow2 = 1085;
+const evenRow3 = 935;
+const evenRow4 = 783;
+const evenRow5 = 631;
+const evenRow6 = 479;
+const evenRow7 = 327;
+const evenRow8 = 200;
+
+
+
 module.exports = {
     initState: {
         pieces: [
@@ -13,7 +45,12 @@ module.exports = {
         ],
         blackReserve: 12,
         whiteReserve: 12,
-        currentPlayer: 'white'
+        currentPlayer: 'white',
+        validMoves: [
+            'A1', 'A2', 'A3', 'A4', 'A5',
+            'B1', 'C1', 'D1', 'E1', 'F1', 'G1', 'H1',
+            'B6', 'C7', 'D8', 'E9', 'F8', 'G7', 'H6',
+            'I1', 'I2', 'I3', 'I4', 'I5']
     },
     pieceImages: {
         white1: {
@@ -42,13 +79,13 @@ module.exports = {
             top: 40,
             left: 1060,
             width: 335,
-            height: 200
+            height: colA
         },
         white: {
             top: 1190,
             left: 35,
             width: 335,
-            height: 200
+            height: colA
         }
     },
     board: {
@@ -58,248 +95,248 @@ module.exports = {
     },
     locations: {
         A1: {
-            x: 200,
-            y: 1015
+            x: colA,
+            y: oddRow3
         },
         A2: {
-            x: 200,
-            y: 863
+            x: colA,
+            y: oddRow4
         },
         A3: {
-            x: 200,
-            y: 711
+            x: colA,
+            y: oddRow5
         },
         A4: {
-            x: 200,
-            y: 557
+            x: colA,
+            y: oddRow6
         },
         A5: {
-            x: 200,
-            y: 403
+            x: colA,
+            y: oddRow7
         },
         B1: {
-            x: 330,
-            y: 1085
+            x: colB,
+            y: evenRow2
         },
         B2: {
-            x: 330,
-            y: 935
+            x: colB,
+            y: evenRow3
         },
         B3: {
-            x: 330,
-            y: 783
+            x: colB,
+            y: evenRow4
         },
         B4: {
-            x: 330,
-            y: 631
+            x: colB,
+            y: evenRow5
         },
         B5: {
-            x: 330,
-            y: 479
+            x: colB,
+            y: evenRow6
         },
         B6: {
-            x: 330,
-            y: 327
+            x: colB,
+            y: evenRow7
         },
         C1: {
-            x: 460,
-            y: 1165
+            x: colC,
+            y: oddRow2
         },
         C2: {
-            x: 460,
-            y: 1015
+            x: colC,
+            y: oddRow3
         },
         C3: {
-            x: 460,
-            y: 863
+            x: colC,
+            y: oddRow4
         },
         C4: {
-            x: 460,
-            y: 711
+            x: colC,
+            y: oddRow5
         },
         C5: {
-            x: 460,
-            y: 557
+            x: colC,
+            y: oddRow6
         },
         C6: {
-            x: 460,
-            y: 403
+            x: colC,
+            y: oddRow7
         },
         C7: {
-            x: 460,
-            y: 255
+            x: colC,
+            y: oddRow8
         },
         D1: {
-            x: 590,
-            y: 1237
+            x: colD,
+            y: evenRow1
         },
         D2: {
-            x: 590,
-            y: 1085
+            x: colD,
+            y: evenRow2
         },
         D3: {
-            x: 590,
-            y: 935
+            x: colD,
+            y: evenRow3
         },
         D4: {
-            x: 590,
-            y: 783
+            x: colD,
+            y: evenRow4
         },
         D5: {
-            x: 590,
-            y: 631
+            x: colD,
+            y: evenRow5
         },
         D6: {
-            x: 590,
-            y: 479
+            x: colD,
+            y: evenRow6
         },
         D7: {
-            x: 590,
-            y: 327
+            x: colD,
+            y: evenRow7
         },
         D8: {
-            x: 590,
-            y: 175
+            x: colD,
+            y: evenRow8
         },
         E1: {
-            x: 719,
-            y: 1317
+            x: colE,
+            y: oddRow1
         },
         E2: {
-            x: 719,
-            y: 1165
+            x: colE,
+            y: oddRow2
         },
         E3: {
             x: 720,
-            y: 1015
+            y: oddRow3
         },
         E4: {
-            x: 719,
-            y: 863
+            x: colE,
+            y: oddRow4
         },
         E5: {
-            x: 719,
-            y: 711
+            x: colE,
+            y: oddRow5
         },
         E6: {
-            x: 719,
-            y: 557
+            x: colE,
+            y: oddRow6
         },
         E7: {
-            x: 719,
-            y: 403
+            x: colE,
+            y: oddRow7
         },
         E8: {
-            x: 719,
-            y: 255
+            x: colE,
+            y: oddRow8
         },
         E9: {
-            x: 719,
-            y: 99
+            x: colE,
+            y: oddRow9
         },
         F1: {
-            x: 849,
-            y: 1237
+            x: colF,
+            y: evenRow1
         },
         F2: {
-            x: 849,
-            y: 1085
+            x: colF,
+            y: evenRow2
         },
         F3: {
-            x: 849,
-            y: 935
+            x: colF,
+            y: evenRow3
         },
         F4: {
-            x: 849,
-            y: 783
+            x: colF,
+            y: evenRow4
         },
         F5: {
-            x: 849,
-            y: 631
+            x: colF,
+            y: evenRow5
         },
         F6: {
-            x: 849,
-            y: 479
+            x: colF,
+            y: evenRow6
         },
         F7: {
-            x: 849,
-            y: 327
+            x: colF,
+            y: evenRow7
         },
         F8: {
-            x: 849,
-            y: 175
+            x: colF,
+            y: evenRow8
         },
         G1: {
-            x: 976,
-            y: 1165
+            x: colG,
+            y: oddRow2
         },
         G2: {
-            x: 976,
-            y: 1015
+            x: colG,
+            y: oddRow3
         },
         G3: {
-            x: 976,
-            y: 863
+            x: colG,
+            y: oddRow4
         },
         G4: {
-            x: 976,
-            y: 711
+            x: colG,
+            y: oddRow5
         },
         G5: {
-            x: 976,
-            y: 557
+            x: colG,
+            y: oddRow6
         },
         G6: {
-            x: 976,
-            y: 403
+            x: colG,
+            y: oddRow7
         },
         G7: {
-            x: 976,
-            y: 255
+            x: colG,
+            y: oddRow8
         },
         H1: {
-            x: 1105,
-            y: 1085
+            x: colH,
+            y: evenRow2
         },
         H2: {
-            x: 1105,
-            y: 935
+            x: colH,
+            y: evenRow3
         },
         H3: {
-            x: 1105,
-            y: 783
+            x: colH,
+            y: evenRow4
         },
         H4: {
-            x: 1105,
-            y: 631
+            x: colH,
+            y: evenRow5
         },
         H5: {
-            x: 1105,
-            y: 479
+            x: colH,
+            y: evenRow6
         },
         H6: {
-            x: 1105,
-            y: 327
+            x: colH,
+            y: evenRow7
         },
         I1: {
-            x: 1234,
-            y: 1015
+            x: colI,
+            y: oddRow3
         },
         I2: {
-            x: 1234,
-            y: 863
+            x: colI,
+            y: oddRow4
         },
         I3: {
-            x: 1234,
-            y: 711
+            x: colI,
+            y: oddRow5
         },
         I4: {
-            x: 1234,
-            y: 557
+            x: colI,
+            y: oddRow6
         },
         I5: {
-            x: 1234,
-            y: 403
+            x: colI,
+            y: oddRow7
         },
     }
 };

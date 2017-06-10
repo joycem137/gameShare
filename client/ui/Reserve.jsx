@@ -18,13 +18,11 @@ class Reserve extends React.Component {
         const xScale = boardRect.width / board.width;
         const yScale = boardRect.height / board.height;
 
-
         const piecesMarkup = [];
 
         for(let i = 0; i < reserve; i++) {
             const pieceStyle = {
                 backgroundImage: 'url(' + pieceImage.url + ')',
-                backgroundSize: '100%',
                 width: (unscaledRect.width / 5) * xScale,
                 height: (unscaledRect.height / 3) * yScale
             };

@@ -8,6 +8,17 @@ class UiState extends State{
         this.maxBoardSize = Math.min(gameModel.board.width, gameModel.board.height);
         this._handleResize();
         window.onresize = this._handleResize.bind(this);
+
+        this.mousePosition = {};
+        window.onmousemove = this._handleMouseMove.bind(this);
+    }
+
+    _handleMouseMove(event) {
+        this.mousePosition = {
+            x: event.clientX,
+            y: event.clientY
+        };
+        super.notify();
     }
 
     _handleResize() {
@@ -27,7 +38,8 @@ class UiState extends State{
 
     getState() {
         return {
-            boardRect: this.boardRect
+            boardRect: this.boardRect,
+            mousePosition: this.mousePosition
         };
     }
 

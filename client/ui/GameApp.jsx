@@ -5,6 +5,7 @@ const React = require('react');
 const Board = require('./Board.jsx');
 const Reserve = require('./Reserve.jsx');
 const Pieces = require('./Pieces.jsx');
+const GhostPiece = require('./GhostPiece.jsx');
 
 class GameApp extends React.Component {
     constructor(props) {
@@ -20,15 +21,21 @@ class GameApp extends React.Component {
 
     render() {
         const {gameModel} = this.props;
-        const {board: {image: boardImage}, locations} = gameModel;
+        const {board: {image: boardImage}} = gameModel;
 
         const {game: gameState, ui: uiState} = this.state;
 
-        const {pieces, whiteReserve, blackReserve} = gameState;
-        const {boardRect} = uiState;
+        const {pieces, whiteReserve, blackReserve, currentPlayer, validMoves} = gameState;
+        const {boardRect, mousePosition} = uiState;
 
         return (
             <Board rect={boardRect} boardImage={boardImage}>
+                <GhostPiece
+                        boardRect={boardRect}
+                        color={currentPlayer}
+                        validMoves={validMoves}
+                        gameModel={gameModel}
+                        mousePosition={mousePosition}/>
                 <Pieces boardRect={boardRect}
                         pieces={pieces}
                         gameModel={gameModel}/>

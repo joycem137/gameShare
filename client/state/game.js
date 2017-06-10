@@ -9,13 +9,15 @@ class GameState extends State{
         this.whiteReserve = 0;
         this.blackReserve = 0;
         this.currentPlayer = '';
+        this.validMoves = [];
     }
     getState() {
         return {
             pieces: this.pieces,
             whiteReserve: this.whiteReserve,
             blackReserve: this.blackReserve,
-            currentPlayer: this.currentPlayer
+            currentPlayer: this.currentPlayer,
+            validMoves: this.validMoves
         };
     }
 
@@ -24,6 +26,7 @@ class GameState extends State{
         this.whiteReserve = state.whiteReserve;
         this.blackReserve = state.blackReserve;
         this.currentPlayer = state.currentPlayer;
+        this.validMoves = state.validMoves;
         super.setState(state);
     }
 }
