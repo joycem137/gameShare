@@ -1,6 +1,7 @@
-.mainContainer {
-    display: flex;
-    flex-direction: row;
+.board {
+    position: relative;
+    background-size: 100% 99%;
+    background-repeat: no-repeat;
 }
 
 .piece {

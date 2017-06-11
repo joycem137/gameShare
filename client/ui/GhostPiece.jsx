@@ -3,6 +3,7 @@
  */
 
 const React = require('react');
+const Piece = require('./Piece.jsx');
 
 const findNearestLocation = require('../model/findNearestLocation');
 
@@ -25,22 +26,10 @@ class GhostPiece extends React.Component {
         });
 
         if (validMoves.indexOf(nearestLocation) >= 0) {
-            const width = pieceImage.width * xScale;
-            const height = pieceImage.height * yScale;
-
             const myLocation = locations[nearestLocation];
-            const top = (myLocation.y * yScale) - height / 2;
-            const left = (myLocation.x * xScale) - width / 2;
 
-            const pieceStyle = {
-                backgroundImage: 'url(' + pieceImage.url + ')',
-                width,
-                height,
-                top,
-                left
-            };
             return (
-                <div key="ghostPiece" style={pieceStyle} className='ghostPiece'/>
+                <Piece key="ghostPiece" xScale={xScale} yScale={yScale} image={pieceImage} location={myLocation} className="ghostPiece"/>
             );
         } else {
             return null;

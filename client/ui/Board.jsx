@@ -13,12 +13,11 @@ class Board extends React.Component {
         const boardStyle = {
             width: rect.width,
             height: rect.height,
-            backgroundImage: 'url(' + boardImage + ')',
-            backgroundSize: '100%'
+            backgroundImage: 'url(' + boardImage + ')'
         };
 
         return (
-            <div key='board' className='board' style={boardStyle}>
+            <div key='board' className='board' style={boardStyle} className="board">
                 {children}
             </div>
         );

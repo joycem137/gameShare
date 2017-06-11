@@ -2,34 +2,35 @@
  * Data needed to render the GIPF game.
  */
 
-const colA = 207;
-const colB = 330;
-const colC = 460;
-const colD = 590;
-const colE = 724;
-const colF = 849;
-const colG = 976;
-const colH = 1105;
-const colI = 1234;
+// Definitive values from GIMP
+const colA = 177;
+const colB = 306;
+const colC = 438;
+const colD = 569;
+const colE = 700;
+const colF = 829;
+const colG = 958;
+const colH = 1093;
+const colI = 1226;
 
-const oddRow1 = 1317;
-const oddRow2 = 1165;
-const oddRow3 = 1015;
-const oddRow4 = 863;
-const oddRow5 = 716;
-const oddRow6 = 557;
-const oddRow7 = 410;
-const oddRow8 = 255;
-const oddRow9 = 132;
+const oddRow1 = 1298;
+const oddRow2 = 1154;
+const oddRow3 = 1004;
+const oddRow4 = 846;
+const oddRow5 = 700;
+const oddRow6 = 547;
+const oddRow7 = 395;
+const oddRow8 = 243;
+const oddRow9 = 98;
 
-const evenRow1 = 1237;
-const evenRow2 = 1085;
-const evenRow3 = 935;
-const evenRow4 = 783;
-const evenRow5 = 631;
-const evenRow6 = 479;
-const evenRow7 = 327;
-const evenRow8 = 200;
+const evenRow1 = 1228;
+const evenRow2 = 1079;
+const evenRow3 = 926;
+const evenRow4 = 776;
+const evenRow5 = 625;
+const evenRow6 = 473;
+const evenRow7 = 320;
+const evenRow8 = 167;
 
 
 
@@ -89,8 +90,8 @@ module.exports = {
         }
     },
     board: {
-        width: 1400,
-        height: 1400,
+        width: 1404,
+        height: 1418,
         image: 'assets/board.png'
     },
     locations: {
@@ -207,7 +208,7 @@ module.exports = {
             y: oddRow2
         },
         E3: {
-            x: 720,
+            x: colE,
             y: oddRow3
         },
         E4: {
