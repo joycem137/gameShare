@@ -5,12 +5,14 @@ const State = require('./State');
 class GameState extends State{
     constructor() {
         super();
+
         this.pieces = [];
         this.whiteReserve = 0;
         this.blackReserve = 0;
         this.currentPlayer = '';
         this.validMoves = [];
     }
+
     getState() {
         return {
             pieces: this.pieces,

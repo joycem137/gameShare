@@ -3,7 +3,8 @@
  */
 require('jsPolyfills');
 const { expect } = require('chai');
-const {isEdgeLocation, isOccupiedLocation} = require('../../../client/model/util');
+const {isEdgeLocation, isOccupiedLocation, getAdjacentLocation, getAdjacentLocations} = require('../../../client/model/util');
+const generateLocations = require('../../../client/model/generateLocations');
 
 const mockPieces = [
     {id: 0, color: 'white', height: 2, location: 'B2'},
@@ -15,6 +16,74 @@ const mockPieces = [
 ];
 
 describe('client/model/util', function() {
+    let locations;
+
+    describe('getAdjacentLocation', function() {
+        beforeEach(function() {
+            locations = generateLocations();
+        });
+
+        it('returns locations that exist', function() {
+            const result = getAdjacentLocation({
+                homeLocation: 'D3',
+                direction: 'upRight',
+                locations
+            });
+            expect(result).to.equal('E4');
+        });
+
+        it('returns null for locations that do not exist', function() {
+            const result = getAdjacentLocation({
+                homeLocation: 'A1',
+                direction: 'downLeft',
+                locations
+            });
+            expect(result).to.equal(null);
+        });
+
+        it('returns B2 for upRight of A1', function() {
+            const result = getAdjacentLocation({
+                homeLocation: 'A1',
+                direction: 'upRight',
+                locations
+            });
+            expect(result).to.equal('B2');
+        });
+    });
+
+    describe('getAdjacentLocations', function() {
+        beforeEach(function() {
+            locations = generateLocations();
+        });
+
+        it('returns all the adjacent locations for a location in the middle', function() {
+            const result = getAdjacentLocations({
+                homeLocation: 'D3',
+                locations
+            });
+            expect(result).to.deep.have.members([
+                {location: 'D4', direction: 'up'},
+                {location: 'D2', direction: 'down'},
+                {location: 'E3', direction: 'downRight'},
+                {location: 'E4', direction: 'upRight'},
+                {location: 'C2', direction: 'downLeft'},
+                {location: 'C3', direction: 'upLeft'}]);
+            expect(result).to.have.length(6);
+        });
+
+        it('returns only the real locations for a location on the edge', function() {
+            const result = getAdjacentLocations({
+                homeLocation: 'A1',
+                locations
+            });
+            expect(result).to.deep.have.members([
+                {location: 'A2', direction: 'up'},
+                {location: 'B1', direction: 'downRight'},
+                {location: 'B2', direction: 'upRight'}]);
+            expect(result).to.have.length(3);
+        });
+    });
+
     describe('isOccupiedLocation', function() {
         it('exists', function() {
             expect(isOccupiedLocation).to.be.a('function');

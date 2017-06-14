@@ -24,8 +24,9 @@ class GhostPiece extends React.Component {
         const nearestLocation = findNearestLocation({
             xScale, yScale, locations, x: mousePosition.x, y: mousePosition.y
         });
-
-        if (validMoves.indexOf(nearestLocation) >= 0) {
+        const validStartLocations = validMoves
+            .map(move => move.split('-')[0]);
+        if (validStartLocations.indexOf(nearestLocation) >= 0) {
             const myLocation = locations[nearestLocation];
 
             return (
