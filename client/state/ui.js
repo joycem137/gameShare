@@ -2,6 +2,9 @@
  * Tracks the state for the UI.
  */
 const State = require('./State');
+const MouseState = require('./ui/mouse');
+
+
 class UiState extends State{
     constructor(gameModel) {
         super();
@@ -9,16 +12,7 @@ class UiState extends State{
         this._handleResize();
         window.onresize = this._handleResize.bind(this);
 
-        this.mousePosition = {};
-        window.onmousemove = this._handleMouseMove.bind(this);
-    }
-
-    _handleMouseMove(event) {
-        this.mousePosition = {
-            x: event.clientX,
-            y: event.clientY
-        };
-        super.notify();
+        this.mouseState = new MouseState(this);
     }
 
     _handleResize() {
@@ -39,7 +33,7 @@ class UiState extends State{
     getState() {
         return {
             boardRect: this.boardRect,
-            mousePosition: this.mousePosition
+            mouseState: this.mouseState.getState()
         };
     }
 

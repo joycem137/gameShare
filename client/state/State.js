@@ -9,7 +9,7 @@ class State {
         return {};
     }
 
-    setState(state) {
+    setState() {
         this.notify();
     }
 
