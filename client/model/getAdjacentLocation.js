@@ -19,11 +19,11 @@ function getAdjacentLocation({homeLocation, direction, locations}) {
     switch(direction) {
         case 'up':
             newCol = col;
-            newRow = row - 1;
+            newRow = row + 1;
             break;
         case 'down':
             newCol = col;
-            newRow = row + 1;
+            newRow = row - 1;
             break;
         case 'upLeft':
             newCol = col - 1;
@@ -44,17 +44,17 @@ function getAdjacentLocation({homeLocation, direction, locations}) {
         case 'upRight':
             newCol = col + 1;
             if (col < middleCol) {
-                newRow = row;
-            } else {
                 newRow = row + 1;
+            } else {
+                newRow = row;
             }
             break;
         case 'downRight':
             newCol = col + 1;
             if (col < middleCol) {
-                newRow = row - 1;
-            } else {
                 newRow = row;
+            } else {
+                newRow = row - 1;
             }
             break;
     }
