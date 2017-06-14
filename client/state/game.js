@@ -2,15 +2,22 @@
  * Tracks the state for the game.
  */
 const State = require('./State');
-class GameState extends State{
-    constructor() {
-        super();
 
-        this.pieces = [];
-        this.whiteReserve = 0;
-        this.blackReserve = 0;
-        this.currentPlayer = '';
-        this.validMoves = [];
+const generateValidMoves = require('../model/generateValidMoves');
+
+class GameState extends State{
+    constructor(gameModel) {
+        super();
+        this._gameModel = gameModel;
+        const {initState} = gameModel;
+
+        const {pieces, whiteReserve, blackReserve, currentPlayer} = initState;
+
+        this.pieces = pieces;
+        this.whiteReserve = whiteReserve;
+        this.blackReserve = blackReserve;
+        this.currentPlayer = currentPlayer;
+        this._updateState();
     }
 
     getState() {
@@ -23,13 +30,11 @@ class GameState extends State{
         };
     }
 
-    setState(state) {
-        this.pieces = state.pieces;
-        this.whiteReserve = state.whiteReserve;
-        this.blackReserve = state.blackReserve;
-        this.currentPlayer = state.currentPlayer;
-        this.validMoves = state.validMoves;
-        super.setState(state);
+    _updateState() {
+        const {locations} = this._gameModel;
+        const pieces = this.pieces;
+        this.validMoves = generateValidMoves({locations, pieces});
+        super.notify();
     }
 }
 

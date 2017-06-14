@@ -1,13 +1,13 @@
 /**
  * generate a list of valid moves
  */
-const {isEdgeLocation, isFilledDirection, getAdjacentLocations, getDirectionOf} = require('./util');
+const {isEdgeLocation, isFilledDirection, getAdjacentLocations} = require('./util');
 
 function generateValidMoves({locations, pieces}) {
-    return locations
+    return Object.keys(locations)
         .filter(location => isEdgeLocation(location))
         .map((location) => {
-            const adjacentLocations = getAdjacentLocations({location, locations});
+            const adjacentLocations = getAdjacentLocations({homeLocation: location, locations});
             return {
                 location,
                 adjacentLocations

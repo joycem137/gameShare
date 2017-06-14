@@ -15,12 +15,10 @@ const ReactDOM = require('react-dom');
 const gameModel = require('./model/gipf');
 
 const GameState = require('./state/game');
-const gameState = new GameState();
+const gameState = new GameState(gameModel);
 
 const UiState = require('./state/ui');
 const uiState = new UiState(gameModel);
-
-gameState.setState(gameModel.initState);
 
 const GameApp = require('./ui/GameApp.jsx');
 

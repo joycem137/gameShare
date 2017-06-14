@@ -16,12 +16,7 @@ module.exports = {
         ],
         blackReserve: 12,
         whiteReserve: 12,
-        currentPlayer: 'white',
-        validMoves: [
-            'A1', 'A2', 'A3', 'A4', 'A5',
-            'B1', 'C1', 'D1', 'E1', 'F1', 'G1', 'H1',
-            'B6', 'C7', 'D8', 'E9', 'F8', 'G7', 'H6',
-            'I1', 'I2', 'I3', 'I4', 'I5']
+        currentPlayer: 'white'
     },
     pieceImages: {
         white1: {
