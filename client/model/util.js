@@ -20,4 +20,15 @@ function isEdgeLocation(locationId) {
         rowIndex === colRowMax);
 }
 
-module.exports = isEdgeLocation;
+/**
+ * returns true if a location is occupied
+ * @param locationId
+ */
+function isOccupiedLocation(locationId, pieces) {
+    return pieces.some((piece) => piece.location === locationId);
+}
+
+module.exports = {
+    isEdgeLocation,
+    isOccupiedLocation
+};
